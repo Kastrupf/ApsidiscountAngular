@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ApsidiscountAngular": {
+    "MatInfo": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ApsidiscountAngular",
+            "outputPath": "dist/MatInfo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ApsidiscountAngular:build"
+            "browserTarget": "MatInfo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ApsidiscountAngular:build:production"
+              "browserTarget": "MatInfo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ApsidiscountAngular:build"
+            "browserTarget": "MatInfo:build"
           }
         },
         "test": {
@@ -105,15 +105,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ApsidiscountAngular:serve"
+            "devServerTarget": "MatInfo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ApsidiscountAngular:serve:production"
+              "devServerTarget": "MatInfo:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ApsidiscountAngular"
+  "defaultProject": "MatInfo"
 }

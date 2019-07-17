@@ -1,0 +1,5 @@
+<br/>
+<label> choix de l'image :</label>
+<img [src]="imgURL" height="200" *ngIf="imgURL"> <br/>
+<input #file type="file" accept='image/*' (change)="onSelectFile($event)" name='image'>
+<button (click)= 'onUpload()'> save</button>

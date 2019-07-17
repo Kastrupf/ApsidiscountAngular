@@ -1,0 +1,43 @@
+<div class="row">
+  <form class="col s12" (ngSubmit)="onSubmit(userForm.value)" #userForm="ngForm">
+    <div class="row">
+      <div class="input-field col s6">
+        <div class="input-field col s6">
+          <input id="image" type="text" name="image" ngModel class="validate">
+          <label for="image">Image</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="designation" type="text" name="designation" ngModel class="validate">
+          <label for="designation">Designation</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="constructeurId" type="number" name="constructeurId" ngModel class="validate">
+          <label for="constructeurId">ConstructeurId</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="content" type="text" name="content" ngModel class="validate">
+          <label for="content">Content</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="dateMiseEnLigne" type="date" name="dateMiseEnLigne" ngModel class="validate">
+          <label for="dateMiseEnLigne">Date Mise en Ligne</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="categorieId" type="number" name="categorieId" ngModel class="validate">
+          <label for="categorieId">Categorie ID</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="stock" type="number" name="stock" ngModel class="validate">
+          <label for="stock">Stock</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="prix" type="number" name="prix" ngModel class="validate">
+          <label for="prix">Prix</label>
+        </div>
+        <div>
+          <input type="submit" value="Envoyer" class="waves-effect waves-light btn" />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

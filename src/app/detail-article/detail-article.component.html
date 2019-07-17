@@ -1,0 +1,43 @@
+<!-- <table class="zebre" *ngIf="article.stock"> 
+    <tbody>
+      <tr>
+        <td><img [src]=article.image/></td>
+        <td>{{article.designation}}</td>
+        <td>{{article.constructeur}}</td>
+        <td>{{article.categorie}}</td>
+        <td>{{article.dateMiseLigne| date: short }}  </td>
+        <td>{{article.description}}</td>
+        <td [appStockCouleur]=article.stock>{{article.stock}}</td>
+        <td>{{article.prix}}</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+
+<div class="row">
+  <h4> affichage en card </h4>
+  <div class="col s12 m7">
+    <div class="card"  >
+      <img [src]=article.image /><br>
+      <div class="card-content" [align]=aligne>
+        {{article.designation}}<br>
+        {{article.id}}<br>
+        {{article.constructeurId }} <br>
+        {{article.content}}<br>
+        {{article.dateMiseEnLigne | date: short}}<br>
+        {{article.categorieId}}<br>
+        {{article.stock }}<br>
+        {{article.prix}} € <br>
+      </div>
+      <div class="card-action">
+        <a routerLink="/liste-produits"> retour liste Articles</a>
+        <!-- <button class="bott1" (click)="augmenterPrix()"> Augmenter le prix </button>
+        <button class="bott2" (click)="baisserPrix()"> Baisser le prix </button>
+        <input type="number" [(ngModel)]=article.stock />
+        <button class="bott3" type="text" [disabled]=disabledPrecedent (click)="precedent()">
+          < </button> <button class="bott4" type="text" [disabled]=disabledSuivant (click)="suivant()"> >
+        </button> -->
+      </div>
+    </div>
+  </div>
+</div>

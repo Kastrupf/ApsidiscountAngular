@@ -1,0 +1,87 @@
+<div class="row">
+  <form class="col s12" [formGroup]="createForm" (ngSubmit)="onSubmit(userForm.value)" #userForm="ngForm">
+    <div class="row">
+      <div class="input-field col s6">
+        <label for="image">Image</label>
+        <input type="text" [formControl]="image">
+        <div *ngIf="image.dirty && !image.valid">
+          <p *ngIf="image.errors.required">
+            L'image est obligatoire
+          </p>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <label for="designation">Designation</label>
+        <input id="designation" type="text" name="designation" [formControl]="designation">
+        <div *ngIf="designation.dirty && !designation.valid">
+          <p *ngIf="designation.errors.required">
+            La designation est obligatoire
+          </p>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <label for="constructeurId">ConstructeurId</label>
+        <input id="constructeurId" type="number" name="constructeurId" [formControl]="constructeurId">
+        <div *ngIf="constructeurId.dirty && !constructeurId.valid">
+          <p *ngIf="constructeurId.errors.required">
+            Le constructeur est obligatoire
+          </p>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <label for="categorieId">Categorie ID</label>
+        <input id="categorieId" type="number" name="categorieId" [formControl]="categorieId">
+        <div *ngIf="categorieId.dirty && !categorieId.valid">
+          <p *ngIf="categorieId.errors.required">
+            La categorie est obligatoire
+          </p>
+        </div>
+      </div>
+      <div>
+        <label for="content">Content</label>
+        <input id="content" type="text" name="content" [formControl]="content">
+        <div *ngIf="content.dirty && !content.valid">
+          <p *ngIf="content.errors.required">
+            La description de l'article est obligatoire
+          </p>
+        </div>
+      </div>
+      <div>
+        <label for="dateMiseEnLigne">Date Mise en Ligne</label>
+        <input id="dateMiseEnLigne" type="date" name="dateMiseEnLigne" [formControl]="dateMiseEnLigne">
+        <div *ngIf="dateMiseEnLigne.dirty && !dateMiseEnLigne.valid">
+          <p *ngIf="dateMiseEnLigne.errors.required">
+            La date est obligatoire
+          </p>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <label for="stock">Stock</label>
+        <input id="stock" type="number" name="stock" [formControl]="stock">
+        <div *ngIf="stock.dirty && !stock.valid">
+          <p *ngIf="stock.errors.required">
+            Le stock est obligatoire
+          </p>
+          <p *ngIf="prix.errors.etrePositif">
+            Le prix doit etre positif
+          </p>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <label for="prix">Prix</label>
+        <input id="prix" type="number" name="prix" class="validate" [formControl]="prix">
+        <div *ngIf="prix.dirty && !prix.valid">
+          <p *ngIf="prix.errors.required">
+            Le prix est obligatoire
+          </p>
+          <p *ngIf="prix.errors.etrePositif">
+            Le prix doit etre positif
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input type="submit" value="Envoyer" class="waves-effect waves-light btn" [disabled]="!createForm.valid" />
+    </div>
+  </form>
+</div>
