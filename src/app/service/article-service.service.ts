@@ -10,23 +10,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ArticleServiceService {
 
-  baseURL ='http://localhost:3000';
+  baseURL = 'http://localhost:8081/apsidiscountweb/api';
 
   httpOptions = {
-    headers : new HttpHeaders({
-      'Content-Type' : 'application/json'
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
     })
   };
 
-  constructor(private http:HttpClient) { }
- 
-// ********    sans Json *******
-  getAllArticles() : Observable<Article>{
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+
+  }
+
+  // ********    sans Json *******
+  getAllArticles(): Observable<Article> {
     return from(ARTICLES);
   }
 
-  getAllArticlesJson() : Observable<Article[]>{
-    return this.http.get<Article[]>(`${this.baseURL}/articles`,this.httpOptions);
+  getAllArticlesJson(): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.baseURL}/article`, this.httpOptions);
   }
 
   // // ********    sans Json *******
@@ -37,38 +41,37 @@ export class ArticleServiceService {
   //  return $monObservable;
   // }
 
-  getArtPositifJson() : Observable<Article[]>{
-    let $monObservable=this.getAllArticlesJson().pipe(
-    map(tabArticles=> tabArticles.filter(art=>art.stock>0))
+  getArtPositifJson(): Observable<Article[]> {
+    let $monObservable = this.getAllArticlesJson().pipe(
+      map(tabArticles => tabArticles.filter(art => art.stock > 0))
     );
     return $monObservable;
-   }
+  }
 
   //  getPersonneByIdJson(id: number): Observable<Personne> {
   //   return this.http.get<Personne> (`${this.baseURL}/personnes/${id}`,this.httpOptions);
   // }
 
-   getArticleByIdJson(id: number): Observable<Article> {
-    return this.http.get<Article> (`${this.baseURL}/articles/${id}`,this.httpOptions);
+  getArticleByIdJson(id: number): Observable<Article> {
+    return this.http.get<Article>(`${this.baseURL}/article/${id}`, this.httpOptions);
   }
 
-  getArticleById(id:number) : Observable<Article>{
+  getArticleById(id: number): Observable<Article> {
     let $monObservable = this.getAllArticles().pipe(
-      filter(art =>art.id===id)
+      filter(art => art.id === id)
     );
     return $monObservable;
-   }
+  }
 
-   /// ******* Creer un article   *****
-   addArticle(article:Article): Observable<Article>{
-    return this.http.post<Article>(`${this.baseURL}/articles`,article,this.httpOptions);
+  /// ******* Creer un article   *****
+  addArticle(article: Article): Observable<Article> {
+    return this.http.post<Article>(`${this.baseURL}/article`, article, this.httpOptions);
 
   }
-    
 
- public deleteArticle(id:number) : Observable<Article>{
-   return this.http.delete<Article>(`${this.baseURL}/articles/${id}`,this.httpOptions);
- }
-  
+
+  public deleteArticle(id: number): Observable<Article> {
+    return this.http.delete<Article>(`${this.baseURL}/article/${id}`, this.httpOptions);
+  }
 
 }

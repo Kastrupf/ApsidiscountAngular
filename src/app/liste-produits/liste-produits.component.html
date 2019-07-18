@@ -36,7 +36,7 @@
       <td>{{gras.dateMiseEnLigne | date: short }} </td>
       <td>{{gras.categorieId}}</td>
       <td [appStockCouleur]=gras.stock>{{gras.stock}}</td>
-      <td>{{gras.prix}} €</td>
+      <td>{{gras.prix | number:'0.2'}} €</td>
       <td> </td>
       <td> <i class="fa fa-trash action" style="font-size:24px" (click)="deleteArticle(gras.id)"></i></td>
     </tr>

@@ -21,12 +21,9 @@ export class ListeProduitsComponent implements OnInit {
   ngOnInit() {
     this.arti = [];
     this.message2 = ' Pas d\'articles dans la liste';
-    // this.listArt.getArticleByIdJson(3).subscribe(article=>{
-    //   this.arti=article
-    // });
     this.listArt.getAllArticlesJson().subscribe(article => {
       this.arti=article;
-     // this.arti.push(article));
+  
   });
   }
   /**
@@ -65,8 +62,4 @@ export class ListeProduitsComponent implements OnInit {
     );
     err => this.message2='erreur lors de la suppression de  article'
   }
-
-  // selectArticle(art: Article){
-  //   console.log('selectArticle :id = ' +art)
-  // }
 }
