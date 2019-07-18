@@ -15,30 +15,30 @@
   <thead>
     <tr>
       <th> Image</th>
-      <th> Id</th>
+      <!-- <th> Id</th> -->
       <th>Designation</th>
-      <th>Constructeur</th>
+      <!-- <th>Constructeur</th> -->
       <th>content</th>
-      <th>Date Mise en Ligne</th>
-      <th>categorieId</th>
+      <!-- <th>Date Mise en Ligne</th> -->
+      <!-- <th>categorieId</th> -->
       <th>Stock</th>
       <th>prix</th>
-      <th colspan="2">Action</th>
+      <!-- <th colspan="2">Action</th> -->
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let gras of arti">
       <td><img [src]=gras.image /> </td>
-      <td>{{gras.id}} </td>
+      <!-- <td>{{gras.id}} </td> -->
       <td>{{gras.designation}}</td>
-      <td>{{gras.constructeurId}}</td>
+      <!-- <td>{{gras.constructeurId}}</td> -->
       <td>{{gras.content}}</td>
-      <td>{{gras.dateMiseEnLigne | date: short }} </td>
-      <td>{{gras.categorieId}}</td>
+      <!-- <td>{{gras.dateMiseEnLigne | date: short }} </td> -->
+      <!-- <td>{{gras.categorieId}}</td> -->
       <td [appStockCouleur]=gras.stock>{{gras.stock}}</td>
-      <td>{{gras.prix}} €</td>
+      <td>{{gras.prix | number:'0.2'}} €</td>
       <td> </td>
-      <td> <i class="fa fa-trash action" style="font-size:24px" (click)="deleteArticle(gras.id)"></i></td>
+      <!-- <td> <i class="fa fa-trash action" style="font-size:24px" (click)="deleteArticle(gras.id)"></i></td> -->
     </tr>
   </tbody>
 </table>

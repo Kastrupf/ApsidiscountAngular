@@ -6,7 +6,7 @@ export class Article {
         public content: string,
         public dateMiseEnLigne: Date,
         public image: string,
-        public description: string,
+        public categorieId: string,
         public stock: number,
         public prix: number) {
 
