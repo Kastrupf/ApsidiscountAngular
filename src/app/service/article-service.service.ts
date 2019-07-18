@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ArticleServiceService {
 
-  baseURL ='http://localhost:8081/apsidiscountweb/api/article';
+  baseURL ='http://localhost:8081/apsidiscountweb/api';
 
   httpOptions = {
     headers : new HttpHeaders({
@@ -26,7 +26,7 @@ export class ArticleServiceService {
   }
 
   getAllArticlesJson() : Observable<Article[]>{
-    return this.http.get<Article[]>(`${this.baseURL}/articles`,this.httpOptions);
+    return this.http.get<Article[]>(`${this.baseURL}/article`,this.httpOptions);
   }
 
   // // ********    sans Json *******
