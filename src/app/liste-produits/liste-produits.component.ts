@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../model/Article';
 import { ArticleServiceService } from '../service/article-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,16 +17,17 @@ export class ListeProduitsComponent implements OnInit {
   art: Article;
   typeListe: number;
 
-  constructor(private listArt: ArticleServiceService) { }
+  constructor(private router: Router, private listArt: ArticleServiceService) { }
 
   ngOnInit() {
     this.arti = [];
     this.message2 = ' Pas d\'articles dans la liste';
+
     this.listArt.getAllArticlesJson().subscribe(article => {
       this.arti=article;
   
   });
-  }
+}
   /**
    * ajouterPanier
    */
@@ -46,10 +48,21 @@ export class ListeProduitsComponent implements OnInit {
 
   rechercherId(id:number){
     
-    this.listArt.getArticleById(3).subscribe (article => this.art=article );
+    this.listArt.getArticleById(id).subscribe (article => this.art=article );
       
    
   }
+
+  //  ***************************tentative de faire une methode pour clic et recherche par id  pour projet **********************
+  //                              ************ recherche reussi manque l'affichage (routing)**********************
+  selectArticle(id:number){
+    console.log('selectArticle : id =' + id);
+   
+    let link=['/gestionArticle', {outlets: {'detail': [id]}}];
+    this.router.navigate(link);
+ 
+  }
+
   deleteArticle(id: number){
     this.listArt.deleteArticle(id).subscribe(
       

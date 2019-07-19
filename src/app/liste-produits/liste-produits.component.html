@@ -2,10 +2,6 @@
   <h4> Liste produits Tableau </h4>
   <button (click)="avecStock()"> Tous </button>
   <button (click)="sansStock()"> En stock</button>
-<!-- 
-  <input type="text" [(ngModel)]="id">
-  <button (click)="rechercherId()">Rechercher par ID</button> -->
-
 </div>
 <div>
   <button (click)="addArticle()">Ajouter Article</button>
@@ -15,58 +11,22 @@
   <thead>
     <tr>
       <th> Image</th>
-      <!-- <th> Id</th> -->
       <th>Designation</th>
-      <!-- <th>Constructeur</th> -->
-      <!-- <th>content</th> -->
-      <!-- <th>Date Mise en Ligne</th> -->
-      <!-- <th>categorieId</th> -->
       <th>Stock</th>
       <th>prix</th>
-      <!-- <th colspan="2">Action</th> -->
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let gras of arti">
-      <td><img [src]=gras.image /> </td>
-      <!-- <td>{{gras.id}} </td> -->
-      <td>{{gras.designation}}</td>
-      <!-- <td>{{gras.constructeurId}}</td> -->
-      <!-- <td>{{gras.content}}</td> -->
-      <!-- <td>{{gras.dateMiseEnLigne | date: short }} </td> -->
-      <!-- <td>{{gras.categorieId}}</td> -->
-      <td [appStockCouleur]=gras.stock>{{gras.stock}}</td>
-      <td>{{gras.prix | number:'0.2'}} €</td>
+    <tr *ngFor="let article of arti" (click)="selectArticle(article.id)">
+      <td><img [src]=article.image /> </td>
+      <td>{{article.designation}}</td>
+      <td [appStockCouleur]=article.stock>{{article.stock}}</td>
+      <td>{{article.prix | number:'0.2'}} €</td>
       <td> </td>
-      <!-- <td> <i class="fa fa-trash action" style="font-size:24px" (click)="deleteArticle(gras.id)"></i></td> -->
+      <!-- <td> <i class="fa fa-trash action" style="font-size:24px" (click)="deleteArticle(article.id)"></i></td> -->
     </tr>
   </tbody>
 </table>
 <div *ngIf='!arti'>
   <p> {{message2}} </p>
 </div>
-
-
-<!-- <div >
-  <h4> En mode Flex</h4>
-    <div class="row">
-        <div class="col s12 m7" *ngFor="let gras of tabArticle">
-          <div class="card" >
-            <img [src]=gras.image /><br>
-            <div class="card-content" [align]=aligne>
-              {{gras.designation}}<br>
-              {{gras.constructeur }} <br>
-              {{gras.categorie}}<br>
-              {{gras.dateMiseLigne | date: short}}<br>
-              {{gras.description}}<br>
-              {{gras.stock }}<br>
-              {{gras.prix}} € <br>
-            </div>
-            <div class="card-action">
-              <button class="panier" (click)="ajouterPanier()"> Ajouter au panier</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-<!-- <app-detail-article *ngFor="let gras of tabArticle" [article]=gras></app-detail-article> -->

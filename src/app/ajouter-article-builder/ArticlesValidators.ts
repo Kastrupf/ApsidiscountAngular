@@ -16,16 +16,4 @@ export class ArticlesValidators {
     }
 
 
-
-
-    // static etreMineur(control: FormControl): ValidationResult {
-    //     console.log('PersonneValidators etreMineur() appelée ...');
-    //     const maDate = new Date(control.value);
-    //     maDate.setFullYear(maDate.getFullYear() + 18);
-    //     if (maDate > new Date()) {
-    //         console.log('Etre mineur ok');
-    //         return { "etreMineur": true };
-    //     }
-    //     return null;
-    // }
 }

@@ -10,6 +10,7 @@ import { ListeProduitsComponent } from './liste-produits/liste-produits.componen
 import { StockCouleurDirective } from './directive/stock-couleur.directive';
 import { AjouterArticleComponent } from './ajouter-article/ajouter-article.component';
 import { AjouterArticleBuilderComponent } from './ajouter-article-builder/ajouter-article-builder.component';
+import { GestionArticlesComponent } from './gestion-articles/gestion-articles.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AjouterArticleBuilderComponent } from './ajouter-article-builder/ajoute
     ListeProduitsComponent,
     StockCouleurDirective,
     AjouterArticleComponent,
-    AjouterArticleBuilderComponent
+    AjouterArticleBuilderComponent,
+    GestionArticlesComponent
   ],
   imports: [
     BrowserModule,
