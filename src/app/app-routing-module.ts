@@ -12,8 +12,8 @@ const appRoutes: Routes = [
   {path: 'gestionArticle', component: GestionArticlesComponent,
        children: [
            { path: '', component: DetailArticleComponent, outlet: 'detail' },
-           { path: ':id', component: DetailArticleComponent, outlet: 'detail' },
-           { path: ':id', component: DetailArticleComponent, outlet: 'categorie' }
+           { path: ':id', component: DetailArticleComponent, outlet: 'detail' }
+          //  { path: ':id', component: DetailArticleComponent, outlet: 'categorie' }
           
           ]
    },

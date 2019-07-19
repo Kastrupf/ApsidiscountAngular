@@ -13,9 +13,9 @@
 
 <div>
   <label>Categorie</label>
-  <select class="browser-default">
+  <select class="browser-default" (change)="selectArticleByCategorie($event.target.value)">
     <option value="" disabled selected>Choisissez par Categorie</option>
-    <option *ngFor="let categorie of cate" (click)="rechercherParCategorie(categorie.id)"> {{ categorie.nom }}</option>
+    <option *ngFor="let categorie of cate" value="{{categorie.id}}">{{ categorie.nom }}</option>
   </select>
   </div>
 

@@ -68,7 +68,7 @@ export class ListeProduitsComponent implements OnInit {
   // }
   selectArticleByCategorie(id: number) {
     console.log('selectArticle : id =' + id);
-    let link = ['/gestionArticle', { outlets: { 'categorie': [id] } }];
+    let link = ['/gestionArticle', { outlets: { 'list': [id] } }];
     this.router.navigate(link);
   
   }
