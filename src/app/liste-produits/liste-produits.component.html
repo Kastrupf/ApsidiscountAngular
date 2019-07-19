@@ -1,11 +1,23 @@
-<div>
-  <h4> Liste produits Tableau </h4>
+<!-- <div>
+
   <button (click)="avecStock()"> Tous </button>
   <button (click)="sansStock()"> En stock</button>
 </div>
+
 <div>
   <button (click)="addArticle()">Ajouter Article</button>
-</div>
+</div> -->
+
+<h4> Liste d'Articles  </h4>
+
+
+<div>
+  <label>Categorie</label>
+  <select class="browser-default">
+    <option value="" disabled selected>Choisissez par Categorie</option>
+    <option *ngFor="let categorie of cat">{{ categorie.id }} {{ categorie.nom }}</option>
+  </select>
+  </div>
 
 <table class="striped" *ngIf='arti'>
   <thead>

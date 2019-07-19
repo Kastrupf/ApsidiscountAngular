@@ -1,7 +1,9 @@
+import { Categorie } from './../model/Categorie';
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../model/Article';
 import { ArticleServiceService } from '../service/article-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CategorieServiceService } from '../service/categorie-service.service';
 
 
 @Component({
@@ -15,9 +17,10 @@ export class ListeProduitsComponent implements OnInit {
   message2: string;
   stock: number;
   art: Article;
+  cat: Categorie;
   typeListe: number;
 
-  constructor(private router: Router, private listArt: ArticleServiceService) { }
+  constructor(private router: Router, private listArt: ArticleServiceService, private listCat: CategorieServiceService) { }
 
   ngOnInit() {
     this.arti = [];
@@ -49,12 +52,15 @@ export class ListeProduitsComponent implements OnInit {
   rechercherId(id:number){
     
     this.listArt.getArticleById(id).subscribe (article => this.art=article );
-      
-   
+        
   }
 
-  //  ***************************tentative de faire une methode pour clic et recherche par id  pour projet **********************
-  //                              ************ recherche reussi manque l'affichage (routing)**********************
+  rechercherParCategorie(id:number){
+    
+    this.listCat.getCategorieByIdJson(id).subscribe (categorie => this.cat=categorie );
+      
+  }
+                         
   selectArticle(id:number){
     console.log('selectArticle : id =' + id);
    
