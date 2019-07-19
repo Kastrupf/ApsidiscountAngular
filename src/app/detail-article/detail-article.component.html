@@ -7,10 +7,10 @@
       <div class="card-content" [align]=aligne>
         {{article.designation}}<br>
         {{article.id}}<br>
-        {{article.constructeurId }} <br>
+        {{article.constructeur.nom }} <br>
         {{article.content}}<br>
         {{article.dateMiseEnLigne | date: short}}<br>
-        {{article.categorieId}}<br>
+        {{article.categorie.nom}}<br>
         {{article.stock }}<br>
         {{article.prix}} € <br>
       </div>
