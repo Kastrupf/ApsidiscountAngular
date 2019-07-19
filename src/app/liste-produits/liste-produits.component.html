@@ -15,7 +15,7 @@
   <label>Categorie</label>
   <select class="browser-default">
     <option value="" disabled selected>Choisissez par Categorie</option>
-    <option *ngFor="let categorie of cate"> {{ categorie.nom }}</option>
+    <option *ngFor="let categorie of cate" (click)="rechercherParCategorie(categorie.id)"> {{ categorie.nom }}</option>
   </select>
   </div>
 

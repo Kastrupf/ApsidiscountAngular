@@ -61,15 +61,20 @@ export class ListeProduitsComponent implements OnInit {
 
   }
 
-  rechercherParCategorie(id: number) {
+  // rechercherParCategorie(id: number) {
 
-    this.listCat.getCategorieByIdJson(id).subscribe(categorie => this.cat = categorie);
+  //   this.listCat.getCategorieByIdJson(id).subscribe(categorie => this.cat = categorie);
 
+  // }
+  selectArticleByCategorie(id: number) {
+    console.log('selectArticle : id =' + id);
+    let link = ['/gestionArticle', { outlets: { 'categorie': [id] } }];
+    this.router.navigate(link);
+  
   }
 
   selectArticle(id: number) {
     console.log('selectArticle : id =' + id);
-
     let link = ['/gestionArticle', { outlets: { 'detail': [id] } }];
     this.router.navigate(link);
 
