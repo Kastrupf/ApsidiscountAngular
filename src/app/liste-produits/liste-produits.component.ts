@@ -12,7 +12,8 @@ import { CategorieServiceService } from '../service/categorie-service.service';
   styleUrls: ['./liste-produits.component.css']
 })
 export class ListeProduitsComponent implements OnInit {
-  
+
+  cate: Categorie[];
   arti: Article[];
   message2: string;
   stock: number;
@@ -24,13 +25,18 @@ export class ListeProduitsComponent implements OnInit {
 
   ngOnInit() {
     this.arti = [];
+    this.cate = [];
     this.message2 = ' Pas d\'articles dans la liste';
 
     this.listArt.getAllArticlesJson().subscribe(article => {
-      this.arti=article;
-  
-  });
-}
+      this.arti = article;
+
+    });
+    this.listCat.getAllCategorieJson().subscribe(categorie => {
+      this.cate = categorie;
+
+    });
+  }
   /**
    * ajouterPanier
    */
@@ -39,46 +45,47 @@ export class ListeProduitsComponent implements OnInit {
 
   avecStock() {
     this.arti = [];
-    this.listArt.getAllArticlesJson().subscribe(article => this.arti=article);
-    this.typeListe=1;
+    this.listArt.getAllArticlesJson().subscribe(article => this.arti = article);
+    this.typeListe = 1;
   }
   sansStock() {
     this.arti = [];
-    this.listArt.getArtPositifJson().subscribe (article => this.arti=article );
-    this.typeListe=2;
+    this.listArt.getArtPositifJson().subscribe(article => this.arti = article);
+    this.typeListe = 2;
   }
 
 
-  rechercherId(id:number){
-    
-    this.listArt.getArticleById(id).subscribe (article => this.art=article );
-        
+  rechercherId(id: number) {
+
+    this.listArt.getArticleById(id).subscribe(article => this.art = article);
+
   }
 
-  rechercherParCategorie(id:number){
-    
-    this.listCat.getCategorieByIdJson(id).subscribe (categorie => this.cat=categorie );
-      
+  rechercherParCategorie(id: number) {
+
+    this.listCat.getCategorieByIdJson(id).subscribe(categorie => this.cat = categorie);
+
   }
-                         
-  selectArticle(id:number){
+
+  selectArticle(id: number) {
     console.log('selectArticle : id =' + id);
-   
-    let link=['/gestionArticle', {outlets: {'detail': [id]}}];
+
+    let link = ['/gestionArticle', { outlets: { 'detail': [id] } }];
     this.router.navigate(link);
- 
+
   }
 
-  deleteArticle(id: number){
+  deleteArticle(id: number) {
     this.listArt.deleteArticle(id).subscribe(
-      
-      value =>{
+
+      value => {
         switch (this.typeListe) {
-          case  1: this.sansStock();
-          case 2 : this.avecStock();
-          default: this.arti=null;
-        }},
+          case 1: this.sansStock();
+          case 2: this.avecStock();
+          default: this.arti = null;
+        }
+      },
     );
-    err => this.message2='erreur lors de la suppression de  article'
+    err => this.message2 = 'erreur lors de la suppression de  article'
   }
 }

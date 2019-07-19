@@ -22,6 +22,10 @@ export class CategorieServiceService {
 
   }
 
+  getAllCategorieJson(): Observable<Categorie[]> {
+    return this.http.get<Categorie[]>(`${this.baseURL}/categorie`, this.httpOptions);
+  }
+
   getCategorieByIdJson(id: number): Observable<Categorie> {
     return this.http.get<Categorie>(`${this.baseURL}/categorie/${id}`, this.httpOptions);
   }
