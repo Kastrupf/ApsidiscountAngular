@@ -27,10 +27,10 @@ export class ListeProduitsComponent implements OnInit {
     this.arti = [];
     this.cate = [];
     this.message2 = ' Pas d\'articles dans la liste';
-
+    this.typeListe = 1;
     this.listArt.getAllArticlesJson().subscribe(article => {
-      this.arti = article;
-
+    this.arti = article;
+    
     });
     this.listCat.getAllCategorieJson().subscribe(categorie => {
       this.cate = categorie;
@@ -66,8 +66,9 @@ export class ListeProduitsComponent implements OnInit {
   //   this.listCat.getCategorieByIdJson(id).subscribe(categorie => this.cat = categorie);
 
   // }
+
   selectArticleByCategorie(id: number) {
-    console.log('selectArticle : id =' + id);
+    console.log('selectArticleByCategorie : id =' + id);
     let link = ['/gestionArticle', { outlets: { 'list': [id] } }];
     this.router.navigate(link);
   

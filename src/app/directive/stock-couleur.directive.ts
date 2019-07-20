@@ -10,6 +10,7 @@ export class StockCouleurDirective {
   get couleur(): string {
     return this._couleur;
   }
+  
   @Input('appStockCouleur') set couleur(value: string) {
 
     this._couleur = value;
@@ -18,9 +19,9 @@ export class StockCouleurDirective {
       this.rdr.setStyle(this.el.nativeElement, 'color', 'orange');
     }
     if (parseInt(this._couleur) === 0) {
-      this.rdr.setStyle(this.el.nativeElement, 'backgroundColor', 'red');
+      this.rdr.setStyle(this.el.nativeElement, 'color', 'red');
     } else if (parseInt(this._couleur) > 5) {
-      this.rdr.setStyle(this.el.nativeElement, 'backgroundColor', 'green');
+      this.rdr.setStyle(this.el.nativeElement, 'color', 'green');
     }
     this.rdr.setStyle(this.el.nativeElement,'text-align','center');
 

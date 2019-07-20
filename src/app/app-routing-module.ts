@@ -8,12 +8,14 @@ import { GestionArticlesComponent } from './gestion-articles/gestion-articles.co
 
 
 const appRoutes: Routes = [
-  { path: 'liste-produits', component: ListeProduitsComponent },
+  { path: 'liste-produits', component: ListeProduitsComponent
+},
+
   {path: 'gestionArticle', component: GestionArticlesComponent,
        children: [
            { path: '', component: DetailArticleComponent, outlet: 'detail' },
-           { path: ':id', component: DetailArticleComponent, outlet: 'detail' }
-          //  { path: ':id', component: DetailArticleComponent, outlet: 'categorie' }
+           { path: ':id', component: DetailArticleComponent, outlet: 'detail' },
+           { path: ':id', component: DetailArticleComponent, outlet: 'list' }
           
           ]
    },
