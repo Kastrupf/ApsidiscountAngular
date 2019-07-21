@@ -19,7 +19,10 @@ export class ListeProduitsComponent implements OnInit {
   stock: number;
   art: Article;
   cat: Categorie;
+  categorieSelected: number;
   typeListe: number;
+ 
+ 
 
   constructor(private router: Router, private listArt: ArticleServiceService, private listCat: CategorieServiceService) { }
 
@@ -30,6 +33,7 @@ export class ListeProduitsComponent implements OnInit {
     this.typeListe = 1;
     this.listArt.getAllArticlesJson().subscribe(article => {
     this.arti = article;
+    this.categorieSelected = 0;
     
     });
     this.listCat.getAllCategorieJson().subscribe(categorie => {
@@ -55,19 +59,18 @@ export class ListeProduitsComponent implements OnInit {
 
 
   rechercherId(id: number) {
-
     this.listArt.getArticleById(id).subscribe(article => this.art = article);
 
   }
 
   selectArticleByCategorie(id: number) {
+    this.typeListe = 2;
     console.log('selectArticleByCategorie : id =' + id);
     let link = ['/gestionArticle', { outlets: { 'list': [id] } }];
     this.router.navigate(link);
-  
   }
 
-  selectArticle(id: number) {
+   selectArticle(id: number) {
     console.log('selectArticle : id =' + id);
     let link = ['/gestionArticle', { outlets: { 'detail': [id] } }];
     this.router.navigate(link);

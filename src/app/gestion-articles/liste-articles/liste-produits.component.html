@@ -8,6 +8,7 @@
 
 <h4> Liste d'Articles  </h4>
 
+
 <div>
   <label>Categorie</label>
   <select class="browser-default" (change)="selectArticleByCategorie($event.target.value)">
@@ -19,14 +20,14 @@
 <table class="striped" *ngIf='arti'>
   <thead>
     <tr>
-      <th> Image</th>
+      <th>Image</th>
       <th>Designation</th>
       <th>Stock</th>
       <th>prix</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let article of arti" (click)="selectArticle(article.id)">
+    <tr *ngFor='let article of arti' (click)="selectArticle(article.id)">
       <td><img [src]=article.image /> </td>
       <td>{{article.designation}}</td>
       <td >{{article.stock}}</td>
@@ -34,6 +35,7 @@
       <!-- <td><div *ngIf="article.stock === 0">   <h4 >pas de stock</h4></div></td> -->
   
       <td [appStockCouleur]=article.stock >
+        
         <div *ngIf="article.stock > 0"> <i class="small material-icons">add_shopping_cart</i></div>
         <div *ngIf="article.stock == 0"> <i class="small material-icons">cancel</i><br> Pas de stock</div>
       </td>

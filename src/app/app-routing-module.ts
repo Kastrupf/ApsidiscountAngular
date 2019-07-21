@@ -41,11 +41,6 @@ const appRoutes: Routes = [
   { path: '**', component: ListeProduitsComponent } 
 ];
 
-
-
-
-
-
 @NgModule({
   imports: [
     RouterModule.forRoot(

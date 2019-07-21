@@ -1,22 +1,26 @@
 
+<div class='container'>
 <div class="row">
-  <h4> Detail Article </h4>
-  <div class="col s6">
-    <div class="card"  >
+  
+  <div class="col s4">
+    <h4> Detail Article </h4>
+    <div class="card">
       <img [src]=article.image /><br>
-      <div class="card-content" [align]=aligne>
-        {{article.designation}}<br>
-        {{article.id}}<br>
-        {{article.constructeur.nom }} <br>
-        {{article.content}}<br>
-        {{article.dateMiseEnLigne | date: short}}<br>
-        {{article.categorie.nom}}<br>
-        {{article.stock }}<br>
-        {{article.prix}} € <br>
+      <div class="card-content">
+        <!-- {{ article.id}}<br> -->
+        {{ article.designation }}<br>
+        {{ article.constructeur.nom }} <br>
+        {{ article.content}}<br>
+        {{ article.dateMiseEnLigne | date: 'dd-MM-yyyy' }}<br>
+        {{ article.categorie.nom }} <br>
+        En stock : {{ article.stock | number: '1.0' }}<br>
+        {{ article.prix | currency:'EUR':true }} <br>
+        <!-- {{ article | json }} <br> -->
       </div>
       <div class="card-action">
         <a routerLink="/liste-produits"> retour liste Articles</a>
       </div>
     </div>
   </div>
+</div>
 </div>

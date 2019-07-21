@@ -17,6 +17,9 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AuthService } from './service/auth.service';
 import { GestionClientsComponent } from './gestion-clients/gestion-clients.component';
 import { GestionPanierComponent } from './gestion-panier/gestion-panier.component';
+import { CategorieComponent } from './gestion-articles/categorie/categorie.component';
+import { CamelCasePipe } from './pipes/camel-case.pipe';
+import { UppercasePipe } from './pipes/uppercase.pipe';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { GestionPanierComponent } from './gestion-panier/gestion-panier.componen
     LoginComponent,
     AccueilComponent,
     GestionClientsComponent,
-    GestionPanierComponent
+    GestionPanierComponent,
+    CategorieComponent,
+    UppercasePipe,
+   
   ],
   imports: [
     BrowserModule,
