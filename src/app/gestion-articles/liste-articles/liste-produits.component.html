@@ -1,15 +1,12 @@
-<div>
-
+<!-- <div>
   <button (click)="avecStock()"> Tous </button>
   <button (click)="sansStock()"> En stock</button>
 </div>
-
 <div>
   <button (click)="addArticle()">Ajouter Article</button>
-</div>
+</div> -->
 
 <h4> Liste d'Articles  </h4>
-
 
 <div>
   <label>Categorie</label>
@@ -46,4 +43,8 @@
 </table>
 <div *ngIf='!arti'>
   <p> {{message2}} </p>
+</div>
+
+<div class="container">
+<router-outlet></router-outlet>
 </div>

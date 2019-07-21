@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ArticleServiceService } from '../service/article-service.service';
-import { Article } from '../model/Article';
+import { ArticleServiceService } from '../../service/article-service.service';
+import { Article } from '../../model/Article';
 
 @Component({
   selector: 'app-ajouter-article',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Article } from '../model/Article';
+import { Article } from '../../model/Article';
 import { Router } from '@angular/router';
-import { ArticleServiceService } from '../service/article-service.service';
+import { ArticleServiceService } from '../../service/article-service.service';
 import { ArticlesValidators } from './ArticlesValidators';
 
 @Component({

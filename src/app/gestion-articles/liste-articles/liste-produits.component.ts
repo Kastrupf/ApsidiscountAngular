@@ -1,9 +1,9 @@
-import { Categorie } from './../model/Categorie';
+import { Categorie } from '../../model/Categorie';
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../model/Article';
-import { ArticleServiceService } from '../service/article-service.service';
+import { Article } from '../../model/Article';
+import { ArticleServiceService } from '../../service/article-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CategorieServiceService } from '../service/categorie-service.service';
+import { CategorieServiceService } from '../../service/categorie-service.service';
 
 
 @Component({
@@ -42,7 +42,6 @@ export class ListeProduitsComponent implements OnInit {
    */
   ajouterPanier() { }
 
-
   avecStock() {
     this.arti = [];
     this.listArt.getAllArticlesJson().subscribe(article => this.arti = article);
@@ -60,12 +59,6 @@ export class ListeProduitsComponent implements OnInit {
     this.listArt.getArticleById(id).subscribe(article => this.art = article);
 
   }
-
-  // rechercherParCategorie(id: number) {
-
-  //   this.listCat.getCategorieByIdJson(id).subscribe(categorie => this.cat = categorie);
-
-  // }
 
   selectArticleByCategorie(id: number) {
     console.log('selectArticleByCategorie : id =' + id);
