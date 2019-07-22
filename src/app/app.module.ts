@@ -18,7 +18,8 @@ import { AuthService } from './service/auth.service';
 import { GestionClientsComponent } from './gestion-clients/gestion-clients.component';
 import { GestionPanierComponent } from './gestion-panier/gestion-panier.component';
 import { CategorieComponent } from './gestion-articles/categorie/categorie.component';
-import { UppercasePipe } from './pipes/uppercase.pipe';
+
+
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { UppercasePipe } from './pipes/uppercase.pipe';
     AccueilComponent,
     GestionClientsComponent,
     GestionPanierComponent,
-    CategorieComponent,
+    CategorieComponent
+   
   ],
   imports: [
     BrowserModule,

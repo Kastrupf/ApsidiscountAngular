@@ -13,7 +13,7 @@
   <label>Liste des Categories</label>
   <select class="browser-default"  (change)="selectArticleByCategorie($event.target.value)">
     <option value="" disabled selected>Choisissez par Categorie</option>
-    <option *ngFor="let categorie of cate" value="{{categorie.id}}" >{{categorie.id}} {{ categorie.nom }}</option>
+    <option *ngFor="let categorie of cate" value="{{categorie.id}}"> {{ categorie.id }} {{ categorie.nom }}</option>
   </select>
   </div>
 
