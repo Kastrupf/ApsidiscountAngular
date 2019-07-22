@@ -1,19 +1,11 @@
-<!-- <div>
-  <button (click)="avecStock()"> Tous </button>
-  <button (click)="sansStock()"> En stock</button>
-</div>
-<div>
-  <button (click)="addArticle()">Ajouter Article</button>
-</div> -->
-
-<h4> Liste d'Articles  </h4> -->
-
 
 <div>
   <label>Liste des Categories</label>
   <select class="browser-default"  (change)="selectArticleByCategorie($event.target.value)">
     <option value="" disabled selected>Choisissez par Categorie</option>
+
     <option *ngFor="let categorie of cate" value="{{categorie.id}}"> {{ categorie.id }} {{ categorie.nom }}</option>
+
   </select>
   </div>
 

@@ -16,24 +16,22 @@ const appRoutes: Routes = [
        children: [
            { path: '', component: ListeProduitsComponent, outlet: 'list' },
            { path: ':id', component: DetailArticleComponent, outlet: 'detail' }
-          
           ]
    },
-  {
-    path: 'gestionClients', component: GestionClientsComponent,
+
+  { path: 'gestionClients', component: GestionClientsComponent,
     children: [
       { path: ':id', component: LoginComponent, outlet: 'detail' },
     ]
   },
-  {
-    path: 'gestionPanier', component: GestionPanierComponent,
+  
+  {path: 'gestionPanier', component: GestionPanierComponent,
     children: [
       { path: 'panier', component: GestionPanierComponent, outlet: 'panier' },
       { path: 'ajouter-article', component: AjouterArticleComponent },
       { path: 'ajouter-article-builder', component: AjouterArticleBuilderComponent }
     ]
   },
-
   { path: 'accueil', component: AccueilComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/liste-produits', pathMatch: 'full' },
