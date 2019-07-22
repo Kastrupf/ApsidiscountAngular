@@ -22,14 +22,12 @@ export class DetailArticleComponent implements OnInit {
   constructor(private route : ActivatedRoute, private listArt: ArticleServiceService) { }
   
  
-
-
   ngOnInit() {
     //this.idArticle = 0;
    this.route.paramMap.subscribe(param=>{
      let id= parseInt(param.get('id'));
      this.listArt.getArticleByIdJson(id).subscribe(data => this.article=data);
-   console.log("lo "+ this.article.id);
+  //  console.log("lo "+ this.article.id);
     });
       
 

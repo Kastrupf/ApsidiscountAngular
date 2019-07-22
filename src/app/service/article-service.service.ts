@@ -52,6 +52,9 @@ export class ArticleServiceService {
   getArticleByIdJson(id: number): Observable<Article> {
     return this.http.get<Article>(`${this.baseURL}/article/${id}`, this.httpOptions);
   }
+  getArticleByIdcategorie(id: number): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.baseURL}/article/categorie/${id}`, this.httpOptions);
+  }
 
   getArticleById(id: number): Observable<Article> {
     let $monObservable = this.getAllArticles().pipe(

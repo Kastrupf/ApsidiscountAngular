@@ -1,5 +1,4 @@
-<div>
-
+<!-- <div>
   <button (click)="avecStock()"> Tous </button>
   <button (click)="sansStock()"> En stock</button>
 </div>
@@ -8,14 +7,14 @@
   <button (click)="addArticle()">Ajouter Article</button>
 </div>
 
-<h4> Liste d'Articles  </h4>
+<h4> Liste d'Articles  </h4> -->
 
 
 <div>
-  <label>Categorie</label>
-  <select class="browser-default" (change)="selectArticleByCategorie($event.target.value)">
+  <label>Liste des Categories</label>
+  <select class="browser-default"  (change)="selectArticleByCategorie($event.target.value)">
     <option value="" disabled selected>Choisissez par Categorie</option>
-    <option *ngFor="let categorie of cate" value="{{categorie.id}}">{{ categorie.nom }}</option>
+    <option *ngFor="let categorie of cate" value="{{categorie.id}}" >{{categorie.id}} {{ categorie.nom }}</option>
   </select>
   </div>
 
@@ -29,18 +28,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let article of arti" (click)="selectArticle(article.id)">
+    <tr *ngFor="let article of arti">
       <td><img [src]=article.image /> </td>
-      <td>{{article.designation}}</td>
+      <td (click)="selectArticle(article.id)" >{{article.designation}}</td>
       <td >{{article.stock}}</td>
       <td>{{article.prix | number:'0.2'}} €</td>
-      <!-- <td><div *ngIf="article.stock === 0">   <h4 >pas de stock</h4></div></td> -->
-  
       <td [appStockCouleur]=article.stock >
         <div *ngIf="article.stock > 0"> <i class="small material-icons">add_shopping_cart</i></div>
         <div *ngIf="article.stock == 0"> <i class="small material-icons">cancel</i><br> Pas de stock</div>
       </td>
-      <!-- <td> <i class="fa fa-trash action" style="font-size:24px" (click)="deleteArticle(article.id)"></i></td> -->
+      <!-- <td> <i class="fa fa-trash action" style="font-size:24px" (click)="deleteArticle(article.id)"></i></td>  $event.target.value  -->
     </tr>
   </tbody>
 </table>

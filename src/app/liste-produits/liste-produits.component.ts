@@ -2,7 +2,7 @@ import { Categorie } from './../model/Categorie';
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../model/Article';
 import { ArticleServiceService } from '../service/article-service.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { CategorieServiceService } from '../service/categorie-service.service';
 
 
@@ -30,11 +30,9 @@ export class ListeProduitsComponent implements OnInit {
     this.typeListe = 1;
     this.listArt.getAllArticlesJson().subscribe(article => {
     this.arti = article;
-    
     });
     this.listCat.getAllCategorieJson().subscribe(categorie => {
       this.cate = categorie;
-
     });
   }
   /**
@@ -55,22 +53,23 @@ export class ListeProduitsComponent implements OnInit {
   }
 
 
-  rechercherId(id: number) {
+  // rechercherId(id: number) {
 
-    this.listArt.getArticleById(id).subscribe(article => this.art = article);
+  //   this.listArt.getArticleById(id).subscribe(article => this.art = article);
 
-  }
+  // }
 
   // rechercherParCategorie(id: number) {
 
-  //   this.listCat.getCategorieByIdJson(id).subscribe(categorie => this.cat = categorie);
+  //   
 
   // }
 
   selectArticleByCategorie(id: number) {
     console.log('selectArticleByCategorie : id =' + id);
-    let link = ['/gestionArticle', { outlets: { 'list': [id] } }];
-    this.router.navigate(link);
+    this.listArt.getArticleByIdcategorie(id).subscribe(article => this.arti = article);
+     let link = ['/gestionArticle', { outlets: { 'list': [id] } }];
+     this.router.navigate(link);
   
   }
 
