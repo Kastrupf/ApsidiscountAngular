@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
-import { DetailArticleComponent } from './detail-article/detail-article.component';
-import { AjouterArticleComponent } from './ajouter-article/ajouter-article.component';
-import { AjouterArticleBuilderComponent } from './ajouter-article-builder/ajouter-article-builder.component';
+import { ListeProduitsComponent } from './gestion-articles/liste-articles/liste-produits.component';
+import { DetailArticleComponent } from './gestion-articles/detail-article/detail-article.component';
+import { AjouterArticleComponent } from './gestion-articles/ajouter-article/ajouter-article.component';
+import { AjouterArticleBuilderComponent } from './gestion-articles/ajouter-article-builder/ajouter-article-builder.component';
 import { GestionArticlesComponent } from './gestion-articles/gestion-articles.component';
-
+import { AccueilComponent } from './accueil/accueil.component';
+import { LoginComponent } from './gestion-clients/login/login.component';
+import { GestionClientsComponent } from './gestion-clients/gestion-clients.component';
+import { GestionPanierComponent } from './gestion-panier/gestion-panier.component';
 
 const appRoutes: Routes = [
-  { path: 'liste-produits', component: ListeProduitsComponent
-},
 
   {path: 'gestionArticle', component: GestionArticlesComponent,
        children: [
@@ -18,13 +19,25 @@ const appRoutes: Routes = [
           
           ]
    },
+  {
+    path: 'gestionClients', component: GestionClientsComponent,
+    children: [
+      { path: ':id', component: LoginComponent, outlet: 'detail' },
+    ]
+  },
+  {
+    path: 'gestionPanier', component: GestionPanierComponent,
+    children: [
+      { path: 'panier', component: GestionPanierComponent, outlet: 'panier' },
+      { path: 'ajouter-article', component: AjouterArticleComponent },
+      { path: 'ajouter-article-builder', component: AjouterArticleBuilderComponent }
+    ]
+  },
 
-  { path: 'articles/:id', component: DetailArticleComponent },
-  { path: 'detail-article', component: DetailArticleComponent },
-  { path: 'ajouter-article', component: AjouterArticleComponent },
-  { path: 'ajouter-article-builder', component: AjouterArticleBuilderComponent },
-  { path: '',   redirectTo: '/liste-produits', pathMatch: 'full' },
-  { path: '**', component: ListeProduitsComponent }
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/liste-produits', pathMatch: 'full' },
+  { path: '**', component: ListeProduitsComponent } 
 ];
 
 @NgModule({
@@ -34,7 +47,7 @@ const appRoutes: Routes = [
     )
   ],
   exports: [
-      RouterModule
+    RouterModule
   ]
 })
 export class AppRoutingModule { }

@@ -1,9 +1,9 @@
-import { Categorie } from './../model/Categorie';
+import { Categorie } from '../../model/Categorie';
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../model/Article';
-import { ArticleServiceService } from '../service/article-service.service';
-import { Router } from '@angular/router';
-import { CategorieServiceService } from '../service/categorie-service.service';
+import { Article } from '../../model/Article';
+import { ArticleServiceService } from '../../service/article-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CategorieServiceService } from '../../service/categorie-service.service';
 
 
 @Component({
@@ -19,7 +19,10 @@ export class ListeProduitsComponent implements OnInit {
   stock: number;
   art: Article;
   cat: Categorie;
+  categorieSelected: number;
   typeListe: number;
+ 
+ 
 
   constructor(private router: Router, private listArt: ArticleServiceService, private listCat: CategorieServiceService) { }
 
@@ -30,7 +33,9 @@ export class ListeProduitsComponent implements OnInit {
     this.typeListe = 1;
     this.listArt.getAllArticlesJson().subscribe(article => {
     this.arti = article;
+    this.categorieSelected = 0;
     });
+
     this.listCat.getAllCategorieJson().subscribe(categorie => {
       this.cate = categorie;
     });
@@ -39,7 +44,6 @@ export class ListeProduitsComponent implements OnInit {
    * ajouterPanier
    */
   ajouterPanier() { }
-
 
   avecStock() {
     this.arti = [];
@@ -53,27 +57,19 @@ export class ListeProduitsComponent implements OnInit {
   }
 
 
-  // rechercherId(id: number) {
+  rechercherId(id: number) {
+    this.listArt.getArticleById(id).subscribe(article => this.art = article);
 
-  //   this.listArt.getArticleById(id).subscribe(article => this.art = article);
-
-  // }
-
-  // rechercherParCategorie(id: number) {
-
-  //   
-
-  // }
-
-  selectArticleByCategorie(id: number) {
-    console.log('selectArticleByCategorie : id =' + id);
-    this.listArt.getArticleByIdcategorie(id).subscribe(article => this.arti = article);
-     let link = ['/gestionArticle', { outlets: { 'list': [id] } }];
-     this.router.navigate(link);
-  
   }
 
-  selectArticle(id: number) {
+  selectArticleByCategorie(id: number) {
+    this.typeListe = 2;
+    console.log('selectArticleByCategorie : id =' + id);
+    let link = ['/gestionArticle', { outlets: { 'list': [id] } }];
+    this.router.navigate(link);
+  }
+
+   selectArticle(id: number) {
     console.log('selectArticle : id =' + id);
     let link = ['/gestionArticle', { outlets: { 'detail': [id] } }];
     this.router.navigate(link);

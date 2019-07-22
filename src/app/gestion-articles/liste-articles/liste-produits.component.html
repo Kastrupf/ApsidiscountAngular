@@ -2,10 +2,9 @@
   <button (click)="avecStock()"> Tous </button>
   <button (click)="sansStock()"> En stock</button>
 </div>
-
 <div>
   <button (click)="addArticle()">Ajouter Article</button>
-</div>
+</div> -->
 
 <h4> Liste d'Articles  </h4> -->
 
@@ -21,7 +20,7 @@
 <table class="striped" *ngIf='arti'>
   <thead>
     <tr>
-      <th> Image</th>
+      <th>Image</th>
       <th>Designation</th>
       <th>Stock</th>
       <th>prix</th>
@@ -34,6 +33,7 @@
       <td >{{article.stock}}</td>
       <td>{{article.prix | number:'0.2'}} €</td>
       <td [appStockCouleur]=article.stock >
+        
         <div *ngIf="article.stock > 0"> <i class="small material-icons">add_shopping_cart</i></div>
         <div *ngIf="article.stock == 0"> <i class="small material-icons">cancel</i><br> Pas de stock</div>
       </td>
@@ -43,4 +43,8 @@
 </table>
 <div *ngIf='!arti'>
   <p> {{message2}} </p>
+</div>
+
+<div class="container">
+<router-outlet></router-outlet>
 </div>

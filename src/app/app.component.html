@@ -1,11 +1,27 @@
 
 
 <nav>
-    <ul>
-        <li><a routerLink="/liste-produits">Liste Produits</a></li>
-        <!-- <li><a routerLink="/detail-article">Detail article</a></li>
-        <li><a routerLink="/ajouter-article">Ajouter article</a></li>
+        <div class="nav-wrapper">
+                <a routerLink="" class="brand-logo right">Apsidiscout LOGO</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+    
+      
+        <li routerLinkActive="active"><a routerLink="/accueil">Accueil</a></li>
+        <li routerLinkActive="active"><a routerLink="/liste-produits">Liste Produits</a></li>
+        <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+        <!-- <li><a routerLink="/detail-article">Detail article</a></li> -->
+        <!-- <li><a routerLink="/ajouter-article">Ajouter article</a></li>
         <li><a routerLink="/ajouter-article-builder">Ajouter article builder</a></li> -->
     </ul>
+</div>
 </nav>
+<div class="container">
+
 <router-outlet></router-outlet>
+</div>
+
+           
+    
+      
+        
+

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { Article } from '../model/Article';
-import { ARTICLES } from '../model/articles-mock';
-import { ArticleServiceService } from '../service/article-service.service';
+import { Article } from '../../model/Article';
+import { ARTICLES } from '../../model/articles-mock';
+import { ArticleServiceService } from '../../service/article-service.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
