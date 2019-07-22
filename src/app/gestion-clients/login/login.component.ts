@@ -22,12 +22,7 @@ export class LoginComponent implements OnInit {
   //   this.authService.effectuerLogin(this.user);
 
     seConnecter() {
-      console.log('seConnecter : user =' + this.user.pseudo);
-      let link = ['/gestionClients', { outlets: { 'login': [] } }];
+      console.log('seConnecter : user =' + this.user.pseudo + this.user.motDePasse);
       this.authService.effectuerLogin(this.user);
-      this.router.navigate(link);
-  
     }
-
-
   }
